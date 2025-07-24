@@ -8,7 +8,7 @@ import (
 	"trab_final/models"
 )
 
-type Node struct {
+/*type Node struct {
 	Isbn		string
 	Titulo		string
 	Autor		string
@@ -16,10 +16,10 @@ type Node struct {
 	Ano			int16
 	Qtde_disp	int16
 	Next		*Node			//para lista
-}
+}*/
 
 func main() {
-	var t *avl.Tree
+	var t *Tree
 	var opcao int16
 	var isbn string
 	var novo *avl.Node = &avl.Node{}

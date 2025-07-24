@@ -1,3 +1,3 @@
-module trab_final_2
+module trab_final
 
 go 1.23.10

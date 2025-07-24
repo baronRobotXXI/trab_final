@@ -6,16 +6,11 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"trab_final/models"
+  	. "trab_final/models"
+	//dot import used here because all structures are
+	//declared exclusively there
 )
 
-
-type Tree struct {
-	Dado		*Node
-	Left		*Tree
-	Right		*Tree
-	Altura		int16
-}
 
 func Max (a, b int16) int16 {
 	if a > b {
@@ -33,12 +28,12 @@ func Alt (t *Tree) int16 {
 }
 
 func NovoNo (d *Node) *Tree {
-	var t *Tree
-
-	t.Dado = d
-	t.Left = nil
-	t.Right = nil
-	t.Altura = 1
+	t := &Tree {
+		Dado:		d,
+		Left:		nil,
+		Right:		nil,
+		Altura:		1,
+	}
 
 	return t
 }
