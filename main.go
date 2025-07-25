@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"os"
 //	"strings"
-	"trab_final/avl"
-	"trab_final/models"
+	 "trab_final/avl"
+	. "trab_final/models"
+	
 )
 
 /*type Node struct {
@@ -22,7 +23,8 @@ func main() {
 	var t *Tree
 	var opcao int16
 	var isbn string
-	var novo *avl.Node = &avl.Node{}
+	var novo Node = Node{}
+	var err error
 	//var temp int16
 
 	fmt.Println("Querido usuario, digite a opcao desejada:")
@@ -39,7 +41,10 @@ func main() {
 	for  {
 		switch opcao {
 		case 1:
-			t = avl.InsereFromArquivo("records.txt")
+			t, err = avl.InsereFromArquivo("records.txt")
+			if err == nil {
+				fmt.Println("File opened successfully.")
+			}
 			break
 
 		case 2:
@@ -71,7 +76,7 @@ func main() {
 			fmt.Println("Digite a quantidade")
 			fmt.Scanf("%d", novo.Qtde_disp)
 
-			t = avl.Inserir(t, novo)
+			t = avl.Inserir(t, &novo)
 
 			break
 

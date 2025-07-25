@@ -136,6 +136,7 @@ func Inserir (t *Tree, d *Node) *Tree {
 
 func InsereFromArquivo (nomeArq string) (*Tree, error) {
 	var t *Tree
+	fmt.Println("*")
 
 	arquivo, err := os.Open(nomeArq)
 	if err != nil {
