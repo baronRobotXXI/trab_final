@@ -1,4 +1,4 @@
-package trab_final
+package structs
 
 /*const ISBN_TAM = 15
 const TITULO_TAM = 100

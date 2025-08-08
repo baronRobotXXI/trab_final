@@ -6,6 +6,7 @@ import (
 //	"strings"
 	 "trab_final/avl"
 	. "trab_final/models"
+	"trab_final/sorting"
 	
 )
 
@@ -25,6 +26,7 @@ func main() {
 	var isbn string
 	var novo Node = Node{}
 	var err error
+	var Node* ordered
 	//var temp int16
 
 	fmt.Println("Querido usuario, digite a opcao desejada:")
@@ -35,7 +37,10 @@ func main() {
 	fmt.Println("5. Inserir Elemento")
 	fmt.Println("6. Apagar Elemento")
 	fmt.Println("7. Salvar no Arquivo")
-	fmt.Println("8. Encerrar")
+	fmt.Println("8. Ordenar por ISBN")
+	fmt.Println("9. Ordenar por Titulo")
+	fmt.Println("10. Ordenar por Ano de Publicação")
+	fmt.Println("11. Encerrar")
 	fmt.Scanf("%d", &opcao)
 
 	for  {
@@ -94,6 +99,26 @@ func main() {
 			break
 
 		case 8:
+			//isbn - quicksort
+			quicksort.QuickSort(t.Dado, nil)
+			fmt.Println("Quicksort pronto")	
+			
+			break
+
+		case 9:
+			//titulo - heapsort
+			heapsort.HeapSort(t.Dado)
+			fmt.Println("Heapsort pronto")
+
+			break
+
+		case 10:
+			//ano pub - mergesort
+			ordered = mergesort.MergeSort(t.Dado)
+			fmt.Println("Mergesort pronto")
+			break
+
+		case 11:
 			os.Exit(0)
 
 		default:
@@ -108,7 +133,10 @@ func main() {
 	fmt.Println("5. Inserir Elemento")
 	fmt.Println("6. Apagar Elemento")
 	fmt.Println("7. Salvar no Arquivo")
-	fmt.Println("8. Encerrar")
+	fmt.Println("8. Ordenar por ISBN")
+	fmt.Println("9. Ordenar por Titulo")
+	fmt.Println("10. Ordenar por Ano de Publicação")
+	fmt.Println("11. Encerrar")
 	fmt.Scanf("%d", &opcao)		
 	}
 }
