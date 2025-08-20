@@ -1,8 +1,9 @@
 package sorting
 
 import (
-	"strconv"
-	"fmt"
+//	"strconv"
+//	"fmt"
+	. "trab_final/models"
 )
 
 func JustMerge (esq *Node, dir *Node) *Node {
@@ -16,12 +17,12 @@ func JustMerge (esq *Node, dir *Node) *Node {
 		return esq
 	}
 
-	if esq.ano_publi <= dir.ano_publi {
+	if esq.Ano <= dir.Ano {
 		result = esq
-		result.next = JustMerge(esq.next, dir)
+		result.Next = JustMerge(esq.Next, dir)
 	} else {
 		result = dir
-		result.next = JustMerge(esq, dir.next)
+		result.Next = JustMerge(esq, dir.Next)
 	}
 
 	return result
@@ -35,9 +36,9 @@ func getMiddle (head *Node) *Node {
 		return head
 	}
 
-	if fast != nil && fast.next != nil {
-		slow = slow.next
-		fast = fast.next.next
+	if fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
 
 	return slow
@@ -48,13 +49,13 @@ func MergeSort (head *Node) *Node {
 	var mid *Node
 	var nextMid *Node
 
-	if head == nil || head.next == nil {
+	if head == nil || head.Next == nil {
 		return head
 	}
 
 	mid = getMiddle(head)
-	nextMid = mid.next
-	mid.next = nil
+	nextMid = mid.Next
+	mid.Next = nil
 
 	//dividindo
 	esq := MergeSort(head)
@@ -65,24 +66,12 @@ func MergeSort (head *Node) *Node {
 	return ordenada
 }
 
-func getNodePos (head *Node, pos int) *Node {
-	temp := head
-	cont := 0
-
-	if temp != nil || cont < pos {
-		temp = temp.next
-		cont++
-	}
-	
-	return temp
-}
-
 func ListaTam (head *Node) int {
 	cont := 0
 	temp := head
 
 	for temp != nil {
-		temp = temp.next
+		temp = temp.Next
 		cont++
 	}
 

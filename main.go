@@ -10,23 +10,13 @@ import (
 	
 )
 
-/*type Node struct {
-	Isbn		string
-	Titulo		string
-	Autor		string
-	Genero		string
-	Ano			int16
-	Qtde_disp	int16
-	Next		*Node			//para lista
-}*/
-
 func main() {
 	var t *Tree
 	var opcao int16
 	var isbn string
 	var novo Node = Node{}
 	var err error
-	var Node* ordered
+	var ordered *Node
 	//var temp int16
 
 	fmt.Println("Querido usuario, digite a opcao desejada:")
@@ -100,21 +90,21 @@ func main() {
 
 		case 8:
 			//isbn - quicksort
-			quicksort.QuickSort(t.Dado, nil)
+			sorting.QuickSort(t.Dado, nil)
 			fmt.Println("Quicksort pronto")	
 			
 			break
 
 		case 9:
 			//titulo - heapsort
-			heapsort.HeapSort(t.Dado)
+			sorting.HeapSort(t.Dado)
 			fmt.Println("Heapsort pronto")
 
 			break
 
 		case 10:
 			//ano pub - mergesort
-			ordered = mergesort.MergeSort(t.Dado)
+			ordered = sorting.MergeSort(t.Dado)
 			fmt.Println("Mergesort pronto")
 			break
 

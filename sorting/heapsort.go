@@ -1,9 +1,22 @@
 package sorting
 
 import (
-	"fmt"
-	"trab_final/sorting"
+//	"fmt"
+	. "trab_final/models"
+	//"trab_final/sorting"
 )
+
+func getNodePos (head *Node, pos int) *Node {
+	temp := head
+	cont := 0
+
+	if temp != nil || cont < pos {
+		temp = temp.Next
+		cont++
+	}
+	
+	return temp
+}
 
 func HeapMaximusPos (head *Node, pos int, heapSize int) {
 	esq := (pos * 2) + 1
@@ -21,7 +34,7 @@ func HeapMaximusPos (head *Node, pos int, heapSize int) {
 		return
 	}
 
-	if esq <= heapSize && nEsq != nil && (nEsq.titulo > nPos.titulo){
+	if esq <= heapSize && nEsq != nil && (nEsq.Titulo > nPos.Titulo){
 		maior = esq
 	} else {
 		maior = pos
@@ -32,11 +45,11 @@ func HeapMaximusPos (head *Node, pos int, heapSize int) {
 	a = getNodePos(head, pos)
 	b = getNodePos(head, maior)
 
-	if dir <= heapSize && nDir != nil && (nDir.titulo > nMaior.titulo){
+	if dir <= heapSize && nDir != nil && (nDir.Titulo > nMaior.Titulo){
 		maior = dir
 	}
 	if maior != pos {
-		quicksort.Troca(a, b)
+		Troca(a, b)
 		HeapMaximusPos(head, maior, heapSize)
 	}
 }
@@ -55,9 +68,9 @@ func HeapSort (head *Node) {
 
 	BuildHeapMaximus(head, heapSize)
 
-	for i = heapsize; i >= 0; i-- {
+	for i = heapSize; i >= 0; i-- {
 		a := getNodePos(head, i)
-		quicksort.Troca(head, a)
+		Troca(head, a)
 		heapSize--
 		HeapMaximusPos(head, 0, heapSize)
 	}

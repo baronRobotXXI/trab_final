@@ -1,27 +1,28 @@
 package sorting
 
 import (
-	"strconv"
-	"fmt"
+	//"strconv"
+	//"fmt"
+	. "trab_final/models"
 )
 
 func Troca (a, b *Node){
-	a.isbn, b.isbn = b.isbn, a.isbn
-	a.titulo, b.titulo = b.titulo, a.titulo
-	a.autor, b.autor = b.autor, a.autor
-	a.genero_area, b.genero_area = a.genero_area, b.genero_area
-	a.ano_publi, b.ano_publi = b.ano_publi, a.ano_publi
-	a.qtde_disp, b.qtde_disp = b.qtde_disp, a.qtde_disp
+	a.Isbn, b.Isbn = b.Isbn, a.Isbn
+	a.Titulo, b.Titulo = b.Titulo, a.Titulo
+	a.Autor, b.Autor = b.Autor, a.Autor
+	a.Genero, b.Genero = a.Genero, b.Genero
+	a.Ano, b.Ano = b.Ano, a.Ano
+	a.Qtde_disp, b.Qtde_disp = b.Qtde_disp, a.Qtde_disp
 }
 
 func Particiona (head *Node, esq int, dir int) *Node {
 	i := head
 	pivot := head
 
-	for j := head; j != nil; j = j.next{
-		if j.isbn < pivot.isbn{
+	for j := head; j != nil; j = j.Next{
+		if j.Isbn < pivot.Isbn{
 			Troca(i, j)
-			i = i.next
+			i = i.Next
 		}
 	}
 
@@ -32,10 +33,10 @@ func Particiona (head *Node, esq int, dir int) *Node {
 func QuickSort (start, end *Node){
 	//sendo start não nulo, diferente de end 
 	//e não tendo dado a volta
-	if start != nil && start != end && start != end.next{
+	if start != nil && start != end && start != end.Next{
 		pivot := Particiona(start, 0, 0)
 		QuickSort(start, pivot)
-		QuickSort(pivot.next, end)
+		QuickSort(pivot.Next, end)
 	}
 
 }
